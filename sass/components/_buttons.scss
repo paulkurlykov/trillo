@@ -1,0 +1,105 @@
+.btn-inline {
+    border: none;
+    color: var(--color-primary);
+    font-size: inherit;
+    border-bottom: 1px solid currentCOlor;
+    padding-bottom: 2px;
+    display: inline-block;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .2s;
+
+    @include respond(max-600) {
+        align-self: center;
+        margin: auto;
+    }
+
+    & span {
+        margin-left: 3px;
+    }
+
+
+    &:hover {
+        color: var(--color-grey-dark-1);
+
+        span {
+            margin-left: 8px;
+            transition: all .2s;
+        }
+    }
+
+
+
+    &:focus {
+        outline: none;
+        // animation: pulsate 1s infinite;
+    }
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+
+    50% {
+        transform: scale(1.15);
+        box-shadow: 0 1rem 4rem rgba(0, 0, 0, .25);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: none;
+    }
+}
+
+.btn {
+    position: relative;
+    font-size: 1.2rem;
+    font-weight: 300;
+    border-radius: 100px;
+    border: none;
+    // padding: 1.5rem 3.5rem;
+    text-transform: uppercase;
+    color: white;
+    background-image: linear-gradient(to right, var(--color-primary-light), var(--color-primary-dark));
+    overflow: hidden;
+    cursor: pointer;
+    @include shadow;
+
+    &>* {
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        transition: all .2s;
+    }
+
+    &__visible {
+
+        padding: 2rem 7.5rem;
+
+
+    }
+
+    &__invisible {
+        padding: 2rem 0;
+        position: absolute;
+        left: 0;
+        top: -100%;
+    }
+
+    &:hover {
+        background-image: linear-gradient(to left, var(--color-primary-light), var(--color-primary-dark));
+    }
+
+    &:hover &__visible {
+        transform: translateY(100%);
+        transition: all .2s;
+    }
+
+    &:hover &__invisible {
+        top: 0;
+
+    }
+
+}
